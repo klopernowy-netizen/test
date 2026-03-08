@@ -133,7 +133,6 @@ const lbImg=lightbox.querySelector("img");
 let projects=JSON.parse(localStorage.getItem("projects")||"[]");
 let reviews=JSON.parse(localStorage.getItem("reviews")||"[]");
 
-// Tryb admin
 accessCodeInput.addEventListener("keyup",e=>{
     if(e.key==="Enter"){
         if(accessCodeInput.value.trim()===PROJECT_CODE){
@@ -146,7 +145,6 @@ accessCodeInput.addEventListener("keyup",e=>{
     }
 });
 
-// Dodawanie projektów
 addProjectBtn.addEventListener("click",()=>{
     const title=document.getElementById("projectTitle").value.trim();
     const img=document.getElementById("projectImg").value.trim();
@@ -160,7 +158,6 @@ addProjectBtn.addEventListener("click",()=>{
     document.getElementById("projectDesc").value="";
 });
 
-// Renderowanie projektów
 function renderProjects(){
     projectGrid.innerHTML="";
     projects.forEach((p,i)=>{
@@ -188,7 +185,6 @@ function renderProjects(){
     });
 }
 
-// Dodawanie opinii
 const addReviewBtn=document.getElementById("addReviewBtn");
 addReviewBtn.addEventListener("click",()=>{
     const title=document.getElementById("reviewName").value.trim();
@@ -202,7 +198,6 @@ addReviewBtn.addEventListener("click",()=>{
     document.getElementById("reviewDesc").value="";
 });
 
-// Renderowanie opinii
 function renderReviews(){
     const testimonialList=document.getElementById("testimonialList");
     testimonialList.innerHTML="";
@@ -225,13 +220,12 @@ function renderReviews(){
     });
 }
 
-// Lightbox
 lightbox.addEventListener("click",()=>lightbox.style.display="none");
 
-// Inicjalizacja
 renderProjects();
 renderReviews();
 </script>
 
 </body>
+
 </html>

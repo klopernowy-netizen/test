@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio – DevSp4ctra</title>
+<style>
+:root {
+    --bg:#f5f2eb;
+    --accent:#FFA500;
+    --text:#1a1a1a;
+    --white:#fff;
+    --transition:0.4s ease;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:"Segoe UI",Arial,sans-serif;background:var(--bg);color:var(--text);scroll-behavior:smooth;}
+a{text-decoration:none;color:inherit;}
+nav{position:fixed;top:0;left:0;width:100%;background:var(--white);box-shadow:0 5px 15px rgba(0,0,0,0.1);z-index:1000;display:flex;justify-content:center;gap:40px;padding:15px 0;font-weight:bold;}
+nav a{color:var(--text);transition:var(--transition);}
+nav a:hover{color:var(--accent);}
+.hero-advanced{display:flex; justify-content:space-between; align-items:center; min-height:100vh; padding:0 5%; background:linear-gradient(135deg,#fff8f0 0%,#ffe5b4 100%); gap:50px; margin-top:60px;}
+.hero-text{flex:1; max-width:45%;}
+.hero-text h1{font-size:4rem; color:var(--accent); margin-bottom:20px;}
+.hero-text p{font-size:1.35rem; margin-bottom:30px; line-height:1.5;}
+.hero-text button{padding:15px 40px; font-size:1.3rem; border:none; background-color:var(--accent); color:var(--white); cursor:pointer; border-radius:8px; transition:var(--transition);}
+.hero-text button:hover{background-color:#FFB733; transform:scale(1.05);}
+.hero-image{flex:1; display:flex; justify-content:center; align-items:center;}
+.hero-image .head-wrapper{width:50vw; max-width:600px; aspect-ratio:1/1; border-radius:50%; overflow:hidden; border:12px solid var(--accent); box-shadow:0 15px 40px rgba(0,0,0,0.25);}
+.hero-image .head-wrapper img{width:100%; height:100%; object-fit:cover;}
+.section{padding:80px 20px; max-width:1200px; margin:0 auto;}
+h2{text-align:center;font-size:3rem;margin-bottom:20px;color:var(--accent);}
+p{text-align:center;margin-bottom:40px;}
+.project-grid{display:grid; gap:25px; grid-template-columns:repeat(auto-fit,minmax(280px,1fr));}
+.project-card{background:#fff;border:2px solid var(--accent);border-radius:12px;overflow:hidden; transition:0.4s; box-shadow:0 8px 20px rgba(0,0,0,0.1);}
+.project-card:hover{transform:scale(1.03);}
+.project-card img{width:100%; display:block; cursor:pointer; max-height:180px; object-fit:contain; background:#fff;}
+.project-card .project-info{padding:15px;}
+.project-card .project-info h3{font-size:1.4rem;margin-bottom:8px;}
+.project-card .project-info p{font-size:1rem;color:#555;}
+.project-card button{margin:5px; padding:6px 12px; border:none; border-radius:6px; cursor:pointer; transition:var(--transition);}
+.project-card button.edit{background:#FFA500;color:#fff;}
+.project-card button.edit:hover{background:#FFB733;}
+.project-card button.delete{background:#ff4d4d;color:#fff;}
+.project-card button.delete:hover{background:#ff1a1a;}
+.lightbox{position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); display:none; justify-content:center; align-items:center; z-index:999;}
+.lightbox img{max-width:90%; max-height:90%; border:5px solid var(--accent); border-radius:12px;}
+.testimonials{background:#fff5e5; padding:60px 20px;}
+.add-form{max-width:600px;margin:40px auto;background:#fff8f0;padding:20px;border:2px solid var(--accent);border-radius:12px;}
+.add-form input,.add-form textarea,.add-form button,.add-form select{width:100%;padding:10px;margin-bottom:10px;border:2px solid var(--accent);border-radius:6px;}
+.add-form button{background:var(--accent);color:#fff;cursor:pointer;}
+.add-form button:hover{background:#FFB733;}
+.testimonial-list{display:flex; flex-direction:column; gap:20px; max-width:800px; margin:0 auto;}
+.testimonial{background:#fff8f0; border:2px solid var(--accent); border-radius:12px; padding:20px; box-shadow:0 5px 15px rgba(0,0,0,0.08); position:relative;}
+.testimonial .stars{color:#FFA500;margin-bottom:8px;}
+.testimonial button{position:absolute; top:10px; right:10px; background:#ff4d4d; color:#fff; border:none; padding:5px 8px; border-radius:5px; cursor:pointer; display:none;}
+#adminCodeWrapper{max-width:400px;margin:40px auto;text-align:center;}
+#adminCodeWrapper input{width:100%;padding:10px;border:2px solid var(--accent);border-radius:6px;}
+footer{text-align:center; padding:40px 0; font-size:0.9rem; color:#555;}
+@media(max-width:900px){
+    .hero-advanced{flex-direction:column;text-align:center;gap:30px;}
+    .hero-image .head-wrapper{width:70vw;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+    <a href="#hero">Strona główna</a>
+    <a href="#portfolio">Projekty</a>
+    <a href="#opinie">Opinie</a>
+</nav>
+
+<section class="hero-advanced" id="hero">
+    <div class="hero-text">
+        <h1>Portfolio – DevSp4ctra</h1>
+        <p>Tworzę nowoczesne pluginy i projekty Minecraft. Zobacz moje realizacje!</p>
+    </div>
+    <div class="hero-image">
+        <div class="head-wrapper">
+            <img src="https://mc-heads.net/avatar/6c08a8ef886c4f20bdd1fdf419e0ce98/512.png" alt="Główka Minecrafta">
+        </div>
+    </div>
+</section>
+
+<section class="section" id="portfolio">
+    <h2>Moje Projekty</h2>
+    <p>Wszystkie moje pluginy i projekty Minecraft.</p>
+    <div class="project-grid" id="projectGrid"></div>
+</section>
+
+<section class="section testimonials" id="opinie">
+    <h2>Opinie klientów</h2>
+    <div class="add-form" id="reviewFormWrapper">
+        <input type="text" id="reviewName" placeholder="Twoja nazwa">
+        <select id="reviewStars">
+            <option value="1">★☆☆☆☆</option>
+            <option value="2">★★☆☆☆</option>
+            <option value="3">★★★☆☆</option>
+            <option value="4">★★★★☆</option>
+            <option value="5">★★★★★</option>
+        </select>
+        <textarea id="reviewDesc" rows="3" placeholder="Opis opinii"></textarea>
+        <button id="addReviewBtn">Dodaj opinię</button>
+    </div>
+    <div class="testimonial-list" id="testimonialList"></div>
+</section>
+
+<section id="adminCodeWrapper">
+    <h2>Tryb administratora</h2>
+    <input type="password" id="accessCode" placeholder="Wpisz kod admina i naciśnij Enter">
+    <div id="creatorFields" class="add-form" style="display:none;">
+        <input type="text" id="projectTitle" placeholder="Nazwa projektu">
+        <input type="url" id="projectImg" placeholder="Link do screena">
+        <textarea id="projectDesc" rows="3" placeholder="Opis projektu"></textarea>
+        <button id="addProjectBtn">Dodaj projekt</button>
+    </div>
+</section>
+
+<div class="lightbox" id="projectLightbox"><img src="" alt="Projekt"></div>
+<footer>© 2026 DevSp4ctra | Portfolio</footer>
+
+<script>
+const PROJECT_CODE="kloper234_";
+let isAdmin=false;
+
+const accessCodeInput=document.getElementById("accessCode");
+const creatorFields=document.getElementById("creatorFields");
+const addProjectBtn=document.getElementById("addProjectBtn");
+const projectGrid=document.getElementById("projectGrid");
+const lightbox=document.getElementById("projectLightbox");
+const lbImg=lightbox.querySelector("img");
+
+let projects=JSON.parse(localStorage.getItem("projects")||"[]");
+let reviews=JSON.parse(localStorage.getItem("reviews")||"[]");
+
+// Tryb admin
+accessCodeInput.addEventListener("keyup",e=>{
+    if(e.key==="Enter"){
+        if(accessCodeInput.value.trim()===PROJECT_CODE){
+            isAdmin=true;
+            accessCodeInput.style.display="none";
+            creatorFields.style.display="block";
+            renderProjects();
+            renderReviews();
+        } else alert("Niepoprawny kod dostępu!");
+    }
+});
+
+// Dodawanie projektów
+addProjectBtn.addEventListener("click",()=>{
+    const title=document.getElementById("projectTitle").value.trim();
+    const img=document.getElementById("projectImg").value.trim();
+    const desc=document.getElementById("projectDesc").value.trim();
+    if(!title||!img||!desc){ alert("Uzupełnij wszystkie pola!"); return;}
+    projects.unshift({title,img,desc});
+    localStorage.setItem("projects",JSON.stringify(projects));
+    renderProjects();
+    document.getElementById("projectTitle").value="";
+    document.getElementById("projectImg").value="";
+    document.getElementById("projectDesc").value="";
+});
+
+// Renderowanie projektów
+function renderProjects(){
+    projectGrid.innerHTML="";
+    projects.forEach((p,i)=>{
+        const card=document.createElement("div");
+        card.classList.add("project-card");
+        card.innerHTML=`<div class="project-info"><h3>${p.title}</h3></div>
+        <img src="${p.img}" alt="${p.title}">
+        <div class="project-info"><p>${p.desc}</p></div>`;
+        card.querySelector("img").addEventListener("click",()=>{lbImg.src=p.img; lightbox.style.display="flex";});
+        if(isAdmin){
+            const editBtn=document.createElement("button"); editBtn.textContent="Edytuj"; editBtn.classList.add("edit");
+            editBtn.onclick=()=>{
+                const t=prompt("Edytuj nazwę projektu",p.title);
+                const iLink=prompt("Edytuj link do screena",p.img);
+                const d=prompt("Edytuj opis projektu",p.desc);
+                if(t&&iLink&&d){ projects[i]={title:t,img:iLink,desc:d}; localStorage.setItem("projects",JSON.stringify(projects)); renderProjects();}
+            };
+            const delBtn=document.createElement("button"); delBtn.textContent="Usuń"; delBtn.classList.add("delete");
+            delBtn.onclick=()=>{
+                if(confirm("Na pewno chcesz usunąć projekt?")){ projects.splice(i,1); localStorage.setItem("projects",JSON.stringify(projects)); renderProjects(); }
+            };
+            card.appendChild(editBtn); card.appendChild(delBtn);
+        }
+        projectGrid.appendChild(card);
+    });
+}
+
+// Dodawanie opinii
+const addReviewBtn=document.getElementById("addReviewBtn");
+addReviewBtn.addEventListener("click",()=>{
+    const title=document.getElementById("reviewName").value.trim();
+    const stars=parseInt(document.getElementById("reviewStars").value);
+    const desc=document.getElementById("reviewDesc").value.trim();
+    if(!title||!desc){ alert("Uzupełnij wszystkie pola!"); return;}
+    reviews.unshift({title,stars,desc});
+    localStorage.setItem("reviews",JSON.stringify(reviews));
+    renderReviews();
+    document.getElementById("reviewName").value="";
+    document.getElementById("reviewDesc").value="";
+});
+
+// Renderowanie opinii
+function renderReviews(){
+    const testimonialList=document.getElementById("testimonialList");
+    testimonialList.innerHTML="";
+    reviews.forEach((r,i)=>{
+        const div=document.createElement("div");
+        div.classList.add("testimonial");
+        div.innerHTML=`<div class="stars">${'★'.repeat(r.stars)+'☆'.repeat(5-r.stars)}</div><strong>${r.title}</strong><p>${r.desc}</p>`;
+        if(isAdmin){
+            const delBtn=document.createElement("button"); delBtn.textContent="Usuń"; delBtn.style.display="block";
+            delBtn.onclick=()=>{
+                if(confirm("Na pewno chcesz usunąć opinię?")){
+                    reviews.splice(i,1);
+                    localStorage.setItem("reviews",JSON.stringify(reviews));
+                    renderReviews();
+                }
+            };
+            div.appendChild(delBtn);
+        }
+        testimonialList.appendChild(div);
+    });
+}
+
+// Lightbox
+lightbox.addEventListener("click",()=>lightbox.style.display="none");
+
+// Inicjalizacja
+renderProjects();
+renderReviews();
+</script>
+
+</body>
+</html>
